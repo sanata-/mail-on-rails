@@ -5,6 +5,7 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara'
 
+
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|

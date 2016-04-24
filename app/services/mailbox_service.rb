@@ -2,14 +2,14 @@ class MailboxService < ApiService
 
 
 
-  def params
-    @login = 'test5'
-    @password = '1231213'
+  def params(login:, password:)
+    @login = login
+    @password = password
   end
 
 
   def status
-    @status
+    @status ||= create
   end
 
   # def add_uid
@@ -28,8 +28,7 @@ class MailboxService < ApiService
 
   def create
     request_url = @url + "/api2/admin/email/add"
-    response = HTTParty.post(request_url, :query => {:domain => @domain, :login => @login, :password => @password }, :headers => { 'PddToken' => @token })
-    @status = JSON.parse(response.body)
+    HTTParty.post(request_url, :query => {:domain => @domain, :login => @login, :password => @password }, :headers => { 'PddToken' => @token })
   end
 
 

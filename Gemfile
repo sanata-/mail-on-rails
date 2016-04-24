@@ -19,6 +19,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'pry-rails'
   gem 'capybara'
+  gem 'webmock'
   gem 'byebug'
   gem 'faker'
 end
