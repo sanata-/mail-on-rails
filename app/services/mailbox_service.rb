@@ -36,4 +36,9 @@ class MailboxService < ApiService
     HTTParty.post(request_url, :query => {:domain => @domain, :login => @login, :password => @password }, :headers => { 'PddToken' => @token })
   end
 
+
+  def update
+    request_url = @url + "/api2/admin/email/edit"
+    HTTParty.post(request_url, :query => {:domain => @domain, :login => @login, :password => @password }, :headers => { 'PddToken' => @token })
+  end
 end

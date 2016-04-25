@@ -23,6 +23,20 @@ feature 'When user delete account' do
     end
   end
 end
+
+feature 'When user update account' do
+  describe 'Mailbox service' do
+    scenario '#update address' do
+
+      mail = MailboxService.new
+      mail.params(login: 'test5', password: '1231213')
+      response = JSON.parse(mail.update)
+      expect(response["success"]).to eq("ok")
+    end
+  end
+end
+
+
 # stub_request(:get, "https://pddimp.yandex.ru").
 #       to_return(:body => %Q(
 # {
