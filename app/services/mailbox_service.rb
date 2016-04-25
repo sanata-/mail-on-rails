@@ -31,5 +31,9 @@ class MailboxService < ApiService
     HTTParty.post(request_url, :query => {:domain => @domain, :login => @login, :password => @password }, :headers => { 'PddToken' => @token })
   end
 
+  def delete
+    request_url = @url + "/api2/admin/email/del"
+    HTTParty.post(request_url, :query => {:domain => @domain, :login => @login, :password => @password }, :headers => { 'PddToken' => @token })
+  end
 
 end

@@ -11,6 +11,18 @@ feature 'When user create account' do
     end
   end
 end
+
+feature 'When user delete account' do
+  describe 'Mailbox service' do
+    scenario '#delete address' do
+
+      mail = MailboxService.new
+      mail.params(login: 'test5', password: '1231213')
+      response = mail.delete
+      expect(response).to be
+    end
+  end
+end
 # stub_request(:get, "https://pddimp.yandex.ru").
 #       to_return(:body => %Q(
 # {
@@ -19,4 +31,4 @@ end
 #     "uid": "{идентификатор почтового ящика}",
 #     "success": "{статус выполнения запроса}"
 # }
-# ))
+# )
