@@ -1,29 +1,34 @@
 <p id="notice"><%= notice %></p>
+<div class="container-fluid page-header  grey lighten-3 purple-text">
+  <h1 class="center">Accounts</h1>
+</div>
 
-<h1>Accounts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Login</th>
-      <th>Password</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @accounts.each do |account| %>
+<div class="container">
+  <table>
+    <thead>
       <tr>
-        <td><%= account.login %></td>
-        <td><%= account.password %></td>
-        <td><%= link_to 'Show', account %></td>
-        <td><%= link_to 'Edit', edit_account_path(account) %></td>
-        <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Login</th>
+        <th>Password</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @accounts.each do |account| %>
+        <tr class="flow-text">
+          <td><%= account.login %></td>
+          <td><%= account.password %></td>
+          <td><%= link_to 'Show', account%></td>
+          <td><%= link_to 'Edit', edit_account_path(account) %></td>
+          <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' }, class: 'red-text'  %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
-
-<%= link_to 'New Account', new_account_path %>
+<div class="container">
+  <%= link_to 'New Account', new_account_path, class: 'waves-light btn  deep-purple lighten-1' %>
+</div>
