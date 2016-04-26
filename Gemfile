@@ -15,6 +15,7 @@ gem 'figaro'
 gem 'httparty'
 gem 'virtus'
 gem 'yard'
+gem "rubycritic", :require => false
 
 group :development, :test do
   gem 'factory_girl_rails'

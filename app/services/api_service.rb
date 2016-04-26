@@ -1,5 +1,5 @@
 class ApiService
-attr_accessor :url, :token, :domain
+attr_reader :url, :token, :domain
 
   def initialize
     @domain = ENV["yandex_pdd_domain"]
