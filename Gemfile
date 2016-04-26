@@ -14,6 +14,7 @@ gem 'simple_form'
 gem 'figaro'
 gem 'httparty'
 gem 'virtus'
+gem 'yard'
 
 group :development, :test do
   gem 'factory_girl_rails'
