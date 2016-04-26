@@ -4,12 +4,22 @@
     <title>YandexMailbox</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="white">
+    <div class="main">
+      <%= render 'navigation' %>
+
+      <div class="container-fluid">
+        <%= yield %>
+      </div>
+    </div>
+    <div class="footer">
+      <%= render 'footer' %>
+    </div>
   </body>
 </html>

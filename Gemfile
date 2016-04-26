@@ -9,10 +9,13 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5.x'
+gem 'materialize-sass'
 gem 'simple_form'
 gem 'figaro'
 gem 'httparty'
 gem 'virtus'
+gem 'yard'
+gem "rubycritic", :require => false
 
 group :development, :test do
   gem 'factory_girl_rails'
