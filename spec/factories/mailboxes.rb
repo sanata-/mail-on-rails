@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :mailbox do
-    info ""
-    account_id 1
+    user nil
+    uid 1
+    parameters ""
   end
 end
