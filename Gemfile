@@ -35,6 +35,7 @@ group :test do
 end
 
 group :development do
+  gem 'meta_request'
   gem 'web-console', '~> 3.0'
   gem 'listen', '~> 3.0.5'
   gem 'spring'

@@ -6,8 +6,5 @@ class CreateMailbox < ApiService
     @response = JSON.parse(result.body)
   end
 
-  def response
-    @response
-  end
 
 end

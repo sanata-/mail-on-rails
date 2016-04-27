@@ -23,7 +23,7 @@ class ChangeMailbox < ApiService
     @response
   end
 
-  
+
   def create_methods
     @response['account'].keys.each do |k|
       define_singleton_method(k) do

@@ -11,4 +11,9 @@ class ApiService
     @token  = ENV['yandex_pdd_token']
     @url    = 'https://pddimp.yandex.ru'
   end
+
+
+  def response
+    @response
+  end
 end

@@ -94,6 +94,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     builder (3.2.2)
     byebug (9.0.5)
+    callsite (0.0.11)
     capybara (2.7.1)
       addressable
       mime-types (>= 1.16)
@@ -166,6 +167,10 @@ GEM
       mime-types (>= 1.16, < 4)
     materialize-sass (0.97.6)
       sass (~> 3.3)
+    meta_request (0.4.0)
+      callsite (~> 0.0, >= 0.0.11)
+      rack-contrib (~> 1.1)
+      railties (>= 3.0.0, < 5.1.0)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -190,6 +195,8 @@ GEM
     puma (3.4.0)
     rack (2.0.0.rc1)
       json
+    rack-contrib (1.2.0)
+      rack (>= 0.9.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.0.rc1)
@@ -311,6 +318,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   materialize-sass
+  meta_request
   pg (~> 0.18)
   pry-rails
   puma
