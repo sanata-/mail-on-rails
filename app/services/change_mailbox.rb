@@ -1,6 +1,4 @@
 
-
-
 class ChangeMailbox < ApiService
 
   # This request is used for editing mailbox
@@ -14,13 +12,6 @@ class ChangeMailbox < ApiService
     @response = JSON.parse(result.body)
     create_methods
     return nil
-  end
-
-  # Edit ressult response accessor
-  #
-  # @return [Hash]
-  def response
-    @response
   end
 
 

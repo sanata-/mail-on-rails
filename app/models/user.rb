@@ -7,7 +7,12 @@ class User < ApplicationRecord
   def create_mailbox
     mailbox = CreateMailbox.new
     mailbox.create(self.login, self.password)
-    Mailbox.create!(user_id: self.id, uid: mailbox.response['uid'])
+    @m = Mailbox.create!(user_id: self.id, uid: mailbox.response['uid'])
+    @m.save!
+    change = ChangeMailbox.new
+    change.edit(self.login)
+    @m.parameters = change.response['account']
+    @m.save!
   end
 
   def remove_mailbox
