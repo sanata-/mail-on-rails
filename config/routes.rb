@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :accounts
   resources :users
   get 'static/index'
   get 'static/about'
