@@ -1,9 +1,9 @@
-# require 'spec_helper'
-#
-# before(:all) do
-#   @mail = MailboxService.new
-#   @mail.params(login: 'test5', password: '1231213')
-# end
+require 'spec_helper'
+
+before(:all) do
+  @mail = MailboxService.new
+  @mail.params(login: 'test5', password: '1231213')
+end
 #
 # feature 'When user create account' do
 #   describe 'Mailbox service' do
