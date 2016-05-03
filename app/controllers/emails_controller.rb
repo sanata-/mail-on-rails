@@ -1,5 +1,5 @@
 class EmailsController < ApplicationController
-  before_filter :authenticate_admin!, :except => [:new]
+  before_action :authenticate_admin!, :except => [:new]
   before_action :set_email, only: [:show, :edit, :update, :destroy]
 
   # GET /emails
