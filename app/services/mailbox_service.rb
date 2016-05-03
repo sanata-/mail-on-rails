@@ -1,44 +1,41 @@
 class MailboxService < ApiService
 
-
-
-  def params(login:, password:)
-    @login = login
-    @password = password
-  end
-
-
-  def status
-    @status ||= create
-  end
-
-  # def add_uid
-  #   success ? uid : nil
-  # end
-
-  def uid
-    @uid ||= status["uid"]
-  end
-
-
-  def success
-    true if status["success"] == "ok"
-  end
-
-
-  def create
+  def create(login, password)
     request_url = @url + "/api2/admin/email/add"
-    HTTParty.post(request_url, :query => {:domain => @domain, :login => @login, :password => @password }, :headers => { 'PddToken' => @token })
+    result = HTTParty.post(request_url, :query => {:domain => @domain, :login => login, :password => password }, :headers => { 'PddToken' => @token })
+    @response = JSON.parse(result.body)
   end
 
-  def delete
+  def remove(login)
     request_url = @url + "/api2/admin/email/del"
-    HTTParty.post(request_url, :query => {:domain => @domain, :login => @login, :password => @password }, :headers => { 'PddToken' => @token })
+    result = HTTParty.post(request_url, :query => {:domain => @domain, :login => login }, :headers => { 'PddToken' => @token })
+    @response = JSON.parse(result.body)
   end
 
+  def list
+    request_url = @url + "/api2/admin/email/list?"
+    result = HTTParty.get(request_url, :query => {:domain => @domain}, :headers => { 'PddToken' => @token })
+    @response = JSON.parse(result.body)
+    @response['accounts']
+  end
 
-  def update
+  def counters(login)
+    request_url = @url + "/api2/admin/email/counters?"
+    result = HTTParty.get(request_url, :query => {:domain => @domain, login: login }, :headers => { 'PddToken' => @token })
+    @response = JSON.parse(result.body)
+  end
+
+  def update(login, params={})
     request_url = @url + "/api2/admin/email/edit"
-    HTTParty.post(request_url, :query => {:domain => @domain, :login => @login, :password => @password }, :headers => { 'PddToken' => @token })
+    result = HTTParty.post(request_url, :query => {:domain => @domain, login: login }, :headers => { 'PddToken' => @token })
+    @response = JSON.parse(result.body)
+    @response['account'].delete_if { |key, value| value.blank? }
   end
+
+  def params(hash)
+    update(login)
+
+    @params.fname
+  end
+
 end
