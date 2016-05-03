@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :emails
   devise_for :admins
   # get 'admins', to: 'devise/session/new'
   get 'static/index'
