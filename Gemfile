@@ -16,7 +16,7 @@ gem 'httparty'
 gem 'virtus'
 gem 'yard'
 gem "rubycritic", :require => false
-
+gem 'devise'
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
