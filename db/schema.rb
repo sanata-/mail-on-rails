@@ -11,13 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160703001143) do
+=======
+ActiveRecord::Schema.define(version: 20160615080933) do
+>>>>>>> f25d967deafd76c0531b8dd36ed255544ddccdb8
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "domains", force: :cascade do |t|
     t.string   "name"
+<<<<<<< HEAD
+=======
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "mailboxes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.bigint   "uid"
+    t.hstore   "parameters"
+>>>>>>> f25d967deafd76c0531b8dd36ed255544ddccdb8
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
