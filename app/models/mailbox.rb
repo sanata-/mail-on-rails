@@ -1,17 +1,6 @@
 class Mailbox < ApplicationRecord
-  # == Relationships ========================================================
-  belongs_to :account
-  # == Validations ==========================================================
-  # == Scopes ===============================================================
-  # == Callbacks ============================================================
-  after_initialize :all_keys
-  # == Class Methods ========================================================
-  # == Instance Methods =====================================================
-  def all_keys
-    self.info.keys.each do |k|
-      define_singleton_method("#{k}") do
-        self.info["#{k}"]
-      end
-    end
+
+  def self.where_name(arg)
+    self.where('data @> ?', { name: arg }.to_json)
   end
 end

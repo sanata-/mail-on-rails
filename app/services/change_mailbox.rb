@@ -1,6 +1,4 @@
 
-
-
 class ChangeMailbox < ApiService
 
   # This request is used for editing mailbox
@@ -16,14 +14,7 @@ class ChangeMailbox < ApiService
     return nil
   end
 
-  # Edit ressult response accessor
-  #
-  # @return [Hash]
-  def response
-    @response
-  end
 
-  
   def create_methods
     @response['account'].keys.each do |k|
       define_singleton_method(k) do

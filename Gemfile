@@ -16,7 +16,7 @@ gem 'httparty'
 gem 'virtus'
 gem 'yard'
 gem "rubycritic", :require => false
-
+gem 'devise'
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
@@ -35,6 +35,7 @@ group :test do
 end
 
 group :development do
+  gem 'meta_request'
   gem 'web-console', '~> 3.0'
   gem 'listen', '~> 3.0.5'
   gem 'spring'

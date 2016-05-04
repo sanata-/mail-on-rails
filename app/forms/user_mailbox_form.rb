@@ -2,12 +2,13 @@ class UserMailboxForm
   include ActiveModel::Model
   include Virtus
 
-  attribute :email, String
+  attribute :login, String
   attribute :password, String
-  attribute :active, Boolean, default: false
+  attribute :uid, Integer
+  # attribute :active, Boolean, default: false
 
-  attr_reader :info
-  validates :email, presence: true
+  attr_reader :mailbox
+  validates :login, presence: true
 
 
   def save
@@ -22,8 +23,7 @@ class UserMailboxForm
   private
 
   def persist!
-    account = Account.create!(login: email, password: password)
-    m = MailboxService.new
-    m.edit(login)
+    user = User.create!(login: email, password: password)
+    @mailbox = user.mailbox.create!(uid: uid)
   end
 end
